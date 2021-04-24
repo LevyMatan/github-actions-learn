@@ -1,0 +1,18 @@
+name: Actions workflows
+on: [push]
+
+jobs:
+  run-github-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simple Javascript action
+        id: hello_action
+        # to use an action, we can use a private one, or one that is published on github
+        # for the latter option, you can use as:
+        # uses: username/repo-name@[version|commit|branch]
+        uses: actions/hello-world-javascript-action@v1
+        # to use parameters with our actions, we will use the key word "with"
+        with: 
+          who-to-greet: Matan
+      - name: Log greeting time
+        run: echo "{{ steps.hello_action.outputs.time }}"
