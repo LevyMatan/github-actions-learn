@@ -8,6 +8,8 @@ jobs:
     steps:
       - name: echo a string
         run: echo "Hello from Github Actions!"
+        # To make the Job fail, we can change the echo command to a typo
+        # for example: eccho "Hello"
       - name: multiline commands
         run: |
           node -v
