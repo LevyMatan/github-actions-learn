@@ -43,4 +43,4 @@ jobs:
 
       - name: Github-Actions tokens
         run: |
-          echo "${{ github.token }}""
+          echo "${{ github.token }}"
