@@ -5,8 +5,9 @@ jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
+    
       - name: list files
-        runs: |
+        run: |
           pwd
           ls
           
@@ -19,6 +20,7 @@ jobs:
         # to use parameters with our actions, we will use the key word "with"
         with: 
           who-to-greet: Matan
+          
       - name: Log greeting time
         run: |
           echo "${{ steps.greet.outputs.time }}"
