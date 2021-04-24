@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Simple Javascript action
-        id: hello_action
+        id: greet
         # to use an action, we can use a private one, or one that is published on github
         # for the latter option, you can use as:
         # uses: username/repo-name@[version|commit|branch]
@@ -15,4 +15,4 @@ jobs:
         with: 
           who-to-greet: Matan
       - name: Log greeting time
-        run: echo "{{ steps.hello_action.outputs.time }}"
+        run: echo "{{ steps.greet.outputs.time }}"
