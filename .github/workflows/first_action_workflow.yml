@@ -34,3 +34,13 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+
+      - name: Github-Actions env variables
+        run: |
+          echo GITHUB_SHA        = $GITHUB_SHA
+          echo GITHUB_REPOSITORY = $GITHUB_REPOSITORY
+          echo GITHUB_WORKSPACE  = $GITHUB_WORKSPACE
+
+      - name: Github-Actions tokens
+        run: |
+          echo "${{ github.token }}""
