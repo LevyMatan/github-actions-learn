@@ -5,6 +5,11 @@ jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
+      - name: list files
+        runs: |
+          pwd
+          ls
+          
       - name: Simple Javascript action
         id: greet
         # to use an action, we can use a private one, or one that is published on github
