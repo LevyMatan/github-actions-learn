@@ -1,6 +1,6 @@
 name: Simple shell commands workflows
 
-on: [push, pull_request]
+on: [] # leave empty to disable workflow
 
 jobs:
   run-shell-command:
