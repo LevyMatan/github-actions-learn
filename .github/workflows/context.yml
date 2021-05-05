@@ -40,3 +40,21 @@ jobs:
           echo ${{ startswith('hello', 'he')}}
           echo ${{ endswith('hello', 'he')}}
           echo ${{ format('hello {0} {1} {2}', 'world', '!', '!') }}
+      - name: failed step
+        run: echho "Hello"
+      - name: run afte fail
+        if: failure()
+        env: 
+          JOB_CONTEX: ${{toJson(job)}}
+        run: |
+          echo "$JOB_CONTEXT"
+  job-status-functions:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull-request' }}
+    steps:
+      - name: is-it-pull-request
+        run: |
+          echo ${{ contains('hello', 'll')}}
+          echo ${{ startswith('hello', 'he')}}
+          echo ${{ endswith('hello', 'he')}}
+          echo ${{ format('hello {0} {1} {2}', 'world', '!', '!') }}
