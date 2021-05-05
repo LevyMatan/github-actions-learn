@@ -11,15 +11,15 @@ jobs:
         node_version: [6, 8, 10]
         include:
           - os: ubuntu-latest
-            node-version: 8
+            node_version: 8
             is_ubuntu_8: "Yes!"
         exclude:
           - os: ubuntu-latest
-            node-version: 6
+            node_version: 6
           - os: macos-latest
-            node-version: 8
+            node_version: 8
           - os: windows-latest
-            node-version: 10
+            node_version: 10
       # fail-fast: true
       # max-parallel: 2
       
@@ -35,6 +35,6 @@ jobs:
       - name: Change node version
         uses: actions/setup-node@v1
         with: 
-          node-version: ${{matrix.node_version}}
+          node_version: ${{matrix.node_version}}
       - name: Log Node Version After
         run: node -v
