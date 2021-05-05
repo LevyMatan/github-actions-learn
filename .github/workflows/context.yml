@@ -39,4 +39,4 @@ jobs:
           echo ${{ contains('hello', 'll')}}
           echo ${{ startswith('hello', 'he')}}
           echo ${{ endswith('hello', 'he')}}
-          echo ${{ format('hello' {0} {1} {2}', 'world', '!', '!')}}
+          echo ${{ format('hello {0} {1} {2}', 'world', '!', '!') }}
