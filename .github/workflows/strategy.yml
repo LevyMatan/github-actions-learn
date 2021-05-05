@@ -1,0 +1,17 @@
+name: Strategy
+
+on: push
+
+jobs:
+
+  my-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log Node Version Before
+        run: node -v
+      - name: version 6
+        uses: actions/setup-node@v1
+        with: 
+          node-version: 6
+      - name: Log Node Version After
+        run: node -v
