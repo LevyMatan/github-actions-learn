@@ -1,6 +1,27 @@
 name: Actions workflows
-on: [push]
 
+on:
+  # schedule: 
+  #   - cron: "5 * * * *" # crontab guru https://crontab.guru/#5_*_*_*_*
+  # pull-request:
+  #   types: [closed, assigned, opened, reopened]
+  # repository_dispatch:
+  #   types: [build]
+  push: # can also be pull-request
+    branches:
+      - main
+      - release
+      - 'feature/*' # mataches feature/featureA, feature/featureB dones't match: feature/feat/a 
+      - 'feature/**' # also matches: feature/feat/a 
+      - '!feature/featureC' # exclude a specific branch from running
+    tags:
+      - same-way-as-branches
+    paths:
+      - '**.js' # whenever a javescript files is changed the workflow will run
+    # paths-ignore: 
+    #   - 'docs/**'
+    # branches-ignore: We cannot use branches and branche-ignore at the same time.
+  
 jobs:
   run-github-actions:
     runs-on: ubuntu-latest
