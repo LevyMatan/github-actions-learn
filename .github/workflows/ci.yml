@@ -3,6 +3,8 @@ name: CI - feature to Develope
 on:
   pull_request:
     branches: [Develop]
+  push:
+    branches: [Develop]
 
 jobs:
 
@@ -34,3 +36,18 @@ jobs:
           npm test -- --coverage
         env:
           CI: true
+
+      - name: Build project
+        if: github.event_name == "push"
+        run: |
+          cd react-app
+          npm run build
+          
+      - name: Deploy on staging
+        if: github.event_name == "push"
+        run: |
+          cd react-app
+          npx surge --project ./build --domain http://elite-kno100t.surge.sh
+        env:
+          SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
