@@ -24,9 +24,13 @@ jobs:
           npm ci
 
       - name: Check code format
-        run: npm run format:check
+        run: |
+          cd react-app
+          npm run format:check
 
       - name: Test code and check covrage
-        run: npm test -- --covrage
+        run: |
+          cd react-app
+          npm test -- --covrage
         env:
           CI: true
