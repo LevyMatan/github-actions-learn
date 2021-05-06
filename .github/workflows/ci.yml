@@ -46,7 +46,7 @@ jobs:
           CI: true
       
       - name: Upload test coverage
-        uses: actions/upload-artifacts@v1
+        uses: actions/upload-artifact@v1
         with:
           name: code-coverage
           path: react-app/coverage
@@ -59,7 +59,8 @@ jobs:
           npm run build
           
       - name: Upload Build folder
-        uses: actions/upload-artifacts@v1
+        if: github.event_name == 'push'
+        uses: actions/upload-artifact@v1
         with:
           name: build
           path: react-app/build
