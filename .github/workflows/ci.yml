@@ -38,13 +38,13 @@ jobs:
           CI: true
 
       - name: Build project
-        if: github.event_name == "push"
+        if: github.event_name == 'push'
         run: |
           cd react-app
           npm run build
           
       - name: Deploy on staging
-        if: github.event_name == "push"
+        if: github.event_name == 'push'
         run: |
           cd react-app
           npx surge --project ./build --domain http://elite-kno100t.surge.sh
