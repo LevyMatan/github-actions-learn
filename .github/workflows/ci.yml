@@ -19,7 +19,9 @@ jobs:
       
       # INSTALL DEPENDENCIES
       - name: Install npm
-        run: npm ci
+        run: |
+          cd react-app
+          npm ci
 
       - name: Check code format
         run: npm run format:check
