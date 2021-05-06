@@ -19,7 +19,7 @@ jobs:
         with:
           path: ~/.npm
           key: os-${{runner.os}}-node-${{hashFiles('**/package-lock.json')}}
-          restore-key: |
+          restore-keys: |
             os-${{runner.os}}-node-
 
       - name: Change node version
