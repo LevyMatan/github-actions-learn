@@ -1,0 +1,30 @@
+name: CI - feature to Develope
+
+on:
+  pull_request:
+    branches: [Develop]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Change node version
+        uses: actions/setup-node@v1
+        with: 
+          node_version: "12.x"
+      
+      # INSTALL DEPENDENCIES
+      - name: Install npm
+        run: npm ci
+
+      - name: Check code format
+        run: npm run format:check
+
+      - name: Test code and check covrage
+        run: npm test -- --covrage
+        env:
+          CI: true
