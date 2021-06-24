@@ -2,9 +2,9 @@ name: CI - feature to Develope
 
 on:
   pull_request:
-    branches: [Develop]
+    branches: [Develop, main]
   push:
-    branches: [Develop]
+    branches: [Develop, main]
 
 jobs:
 
@@ -73,3 +73,9 @@ jobs:
         env:
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+
+      - name: Create release
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: npx semantic-release
+        env: 
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
