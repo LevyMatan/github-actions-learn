@@ -1,3 +1,4 @@
 build/**
 build/adder/CMakeFiles/adder.dir/adder.cpp.o
 CMakeFiles/**
+node_modules
