@@ -75,7 +75,7 @@ jobs:
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
 
       - name: Create release
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/Develop'
         run: npx semantic-release
         env: 
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
