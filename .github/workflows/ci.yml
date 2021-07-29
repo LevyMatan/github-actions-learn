@@ -38,12 +38,12 @@ jobs:
       #     cd react-app
       #     npm run format:check
 
-      - name: Test code and check coverage
-        run: |
-          cd react-app
-          npm test -- --coverage
-        env:
-          CI: true
+      # - name: Test code and check coverage
+      #   run: |
+      #     cd react-app
+      #     npm test -- --coverage
+      #   env:
+      #     CI: true
       
       - name: Upload test coverage
         uses: actions/upload-artifact@v1
