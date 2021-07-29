@@ -76,6 +76,7 @@ jobs:
 
       - name: Create release
         if: github.event_name == 'push' && github.ref == 'refs/heads/cache_feat'
+
         run: npx semantic-release
         env: 
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
