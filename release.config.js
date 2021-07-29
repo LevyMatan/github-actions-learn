@@ -1,5 +1,5 @@
 module.exports = {
-    "brnaches": "main",
+    "branches": ["main",],
     "repositoryUrl": "https://github.com/LevyMatan/github-actions-learn",
     "plugins": [
         "@semantic-release/commit-analyzer", 
