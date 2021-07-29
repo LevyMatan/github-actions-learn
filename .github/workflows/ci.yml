@@ -45,11 +45,11 @@ jobs:
       #   env:
       #     CI: true
       
-      - name: Upload test coverage
-        uses: actions/upload-artifact@v1
-        with:
-          name: code-coverage
-          path: react-app/coverage
+      # - name: Upload test coverage
+      #   uses: actions/upload-artifact@v1
+      #   with:
+      #     name: code-coverage
+      #     path: react-app/coverage
 
 
       - name: Build project
